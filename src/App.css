@@ -1,7 +1,16 @@
-.App {
-  text-align: center;
+/* Global responsive styles */
+* {
+  box-sizing: border-box;
 }
 
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove unused React logo styles */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -34,5 +43,51 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  .App {
+    padding: 0;
+  }
+  
+  /* Ensure touch targets are large enough on mobile */
+  .leaflet-control-zoom a {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    font-size: 18px !important;
+  }
+  
+  /* Improve popup readability on mobile */
+  .leaflet-popup-content {
+    margin: 12px 16px !important;
+    line-height: 1.5 !important;
+  }
+  
+  .leaflet-popup-content-wrapper {
+    border-radius: 8px !important;
+  }
+  
+  /* Better touch interaction for markers */
+  .leaflet-marker-icon {
+    cursor: pointer !important;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .App {
+    padding: 0;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .App {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
 }

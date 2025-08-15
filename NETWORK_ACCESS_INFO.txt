@@ -1,0 +1,60 @@
+=========================================
+ THERMOMIX FRIENDS - NETWORK ACCESS INFO
+=========================================
+
+Your app is now accessible on your local network!
+
+LOCAL IP ADDRESS: 192.168.0.202
+
+ACCESS URLS:
+------------
+From This Computer:
+  • http://localhost:3000
+
+From Other Devices (phones, tablets, other computers):
+  • http://192.168.0.202:3000
+
+Backend API:
+  • http://192.168.0.202:3001
+
+Test Page:
+  • http://192.168.0.202:3000/responsive-test.html
+
+HOW TO ACCESS FROM YOUR PHONE:
+-------------------------------
+1. Make sure your phone is on the same WiFi network
+2. Open your phone's browser (Safari, Chrome, etc.)
+3. Type: http://192.168.0.202:3000
+4. Bookmark it for easy access!
+
+CURRENT STATUS:
+---------------
+✅ Frontend: Running on port 3000
+✅ Backend: Running on port 3001
+✅ CORS: Configured for local network
+✅ Network Access: ENABLED (0.0.0.0)
+
+TESTING DEVICES:
+----------------
+📱 iPhone/Android: http://192.168.0.202:3000
+📲 iPad/Tablet: http://192.168.0.202:3000
+💻 Other Computer: http://192.168.0.202:3000
+
+TROUBLESHOOTING:
+----------------
+Can't connect from phone?
+1. Check WiFi - must be same network
+2. Check IP hasn't changed: ifconfig | grep "inet "
+3. Firewall might be blocking - check Mac firewall settings
+4. Try turning off VPN if you have one
+
+TO STOP SERVERS:
+----------------
+Press Ctrl+C in the terminal windows
+
+SECURITY NOTE:
+--------------
+This is for LOCAL NETWORK testing only.
+Don't expose to internet without proper security!
+
+=========================================

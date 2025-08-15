@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Breakpoint Tester</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        
+        .tester {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #282c34;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .info {
+            background: #282c34;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .info p {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        
+        .info strong {
+            color: #61dafb;
+        }
+        
+        .device-indicator {
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .device-indicator {
+                background: #4CAF50;
+                color: white;
+            }
+            .device-indicator::after {
+                content: "📱 MOBILE VIEW";
+                display: block;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+            .desktop-only { display: none; }
+            .tablet-only { display: none; }
+            .mobile-only { display: block; }
+        }
+        
+        /* Tablet */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .device-indicator {
+                background: #FF9800;
+                color: white;
+            }
+            .device-indicator::after {
+                content: "📲 TABLET VIEW";
+                display: block;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+            .desktop-only { display: none; }
+            .mobile-only { display: none; }
+            .tablet-only { display: block; }
+        }
+        
+        /* Desktop */
+        @media (min-width: 1025px) {
+            .device-indicator {
+                background: #2196F3;
+                color: white;
+            }
+            .device-indicator::after {
+                content: "💻 DESKTOP VIEW";
+                display: block;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+            .mobile-only { display: none; }
+            .tablet-only { display: none; }
+            .desktop-only { display: block; }
+        }
+        
+        .features {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        
+        .features h3 {
+            color: #282c34;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 5px 0;
+            color: #555;
+        }
+        
+        .features li::before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .test-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .test-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: #282c34;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .test-buttons button:hover {
+            background: #3a3f4b;
+        }
+        
+        .resize-hint {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        
+        .resize-hint p {
+            color: #1976D2;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="tester">
+        <h1>Thermomix Friends - Responsive Tester</h1>
+        
+        <div class="info">
+            <p><strong>Current Width:</strong> <span id="width">-</span>px</p>
+            <p><strong>Current Height:</strong> <span id="height">-</span>px</p>
+            <p><strong>Device Pixel Ratio:</strong> <span id="dpr">-</span></p>
+            <p><strong>Orientation:</strong> <span id="orientation">-</span></p>
+        </div>
+        
+        <div class="device-indicator">
+            Resize your browser to test responsiveness
+        </div>
+        
+        <div class="features mobile-only">
+            <h3>Mobile Features Active:</h3>
+            <ul>
+                <li>Full-height map (100vh - 120px)</li>
+                <li>Larger touch targets (36px)</li>
+                <li>Bigger popup fonts (15-18px)</li>
+                <li>Lower initial zoom (3)</li>
+                <li>Hidden zoom controls</li>
+                <li>Responsive header text</li>
+            </ul>
+        </div>
+        
+        <div class="features tablet-only">
+            <h3>Tablet Features Active:</h3>
+            <ul>
+                <li>Balanced layout design</li>
+                <li>Standard map controls</li>
+                <li>Medium popup sizing</li>
+                <li>Optimized for touch and mouse</li>
+            </ul>
+        </div>
+        
+        <div class="features desktop-only">
+            <h3>Desktop Features Active:</h3>
+            <ul>
+                <li>Max-width container (1200px)</li>
+                <li>Fixed map height (600px)</li>
+                <li>Full zoom controls visible</li>
+                <li>Standard popup sizing</li>
+                <li>Centered layout with padding</li>
+            </ul>
+        </div>
+        
+        <div class="test-buttons">
+            <button onclick="resizeWindow(375, 667)">iPhone SE</button>
+            <button onclick="resizeWindow(390, 844)">iPhone 12</button>
+            <button onclick="resizeWindow(768, 1024)">iPad Mini</button>
+            <button onclick="resizeWindow(1024, 768)">iPad Landscape</button>
+            <button onclick="resizeWindow(1280, 720)">Small Laptop</button>
+            <button onclick="resizeWindow(1920, 1080)">Full HD</button>
+        </div>
+        
+        <div class="resize-hint">
+            <p>
+                <strong>💡 Tip:</strong> Use your browser's device mode (F12 → Toggle device toolbar) 
+                to test exact device sizes. This page shows which CSS breakpoint is currently active.
+                Open the main app in another tab to see the actual responsive behavior.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function updateInfo() {
+            document.getElementById('width').textContent = window.innerWidth;
+            document.getElementById('height').textContent = window.innerHeight;
+            document.getElementById('dpr').textContent = window.devicePixelRatio;
+            document.getElementById('orientation').textContent = 
+                window.innerWidth > window.innerHeight ? 'Landscape' : 'Portrait';
+        }
+        
+        function resizeWindow(width, height) {
+            if (window.confirm(`This will attempt to resize your browser window to ${width}x${height}. Note: This may not work in all browsers or with DevTools open. Continue?`)) {
+                window.resizeTo(width, height);
+                setTimeout(updateInfo, 100);
+            }
+        }
+        
+        window.addEventListener('resize', updateInfo);
+        window.addEventListener('load', updateInfo);
+        updateInfo();
+    </script>
+</body>
+</html>

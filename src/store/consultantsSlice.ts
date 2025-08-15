@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { Consultant, ConsultantState } from '../types/consultant';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 export const fetchConsultants = createAsyncThunk(
   'consultants/fetchConsultants',
   async () => {
-    const response = await fetch('http://localhost:3001/api/consultants');
+    const response = await fetch(`${API_URL}/api/consultants`);
     if (!response.ok) {
       throw new Error('Failed to fetch consultants');
     }

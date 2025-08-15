@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import ConsultantMap from './components/ConsultantMap';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header style={{ 
+        padding: '20px', 
+        backgroundColor: '#282c34', 
+        color: 'white',
+        marginBottom: '20px'
+      }}>
+        <h1>Thermomix Friends Locator</h1>
+        <p>Find Thermomix consultants near you across the United States</p>
       </header>
+      <main style={{ padding: '0 20px' }}>
+        <ConsultantMap />
+      </main>
     </div>
   );
 }

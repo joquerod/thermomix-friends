@@ -9,17 +9,7 @@ import { Consultant } from './types';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'http://192.168.0.202:3000',
-    'http://192.168.0.202:3001',
-    /^http:\/\/192\.168\.0\.\d{1,3}:3000$/,  // Allow any device on 192.168.0.x network
-    /^http:\/\/10\.0\.0\.\d{1,3}:3000$/      // Allow any device on 10.0.0.x network
-  ],
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 let consultantsData: Consultant[] = [];

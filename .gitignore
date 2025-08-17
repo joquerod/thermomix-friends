@@ -65,8 +65,7 @@ Thumbs.db
 .parcel-cache
 .cache
 
-# Cached geocoded data (regenerate when needed)
-backend/consultants-with-coords.json
+# Cached geocoded data (now included for deployment)
 
 # Temporary files
 *.tmp

@@ -15,11 +15,18 @@ app.use(express.json());
 let consultantsData: Consultant[] = [];
 let dataLoaded = false;
 
-const CACHE_FILE = path.join(__dirname, '../consultants-with-coords.json');
-const CSV_FILE = path.join(__dirname, '../consultants.csv');
+// In production (compiled), __dirname is 'dist', so we need to go up one more level
+const isProduction = __dirname.endsWith('dist');
+const rootDir = isProduction ? path.join(__dirname, '..') : path.join(__dirname, '..');
+
+const CACHE_FILE = path.join(rootDir, 'consultants-with-coords.json');
+const CSV_FILE = path.join(rootDir, 'consultants.csv');
 
 const loadConsultantsData = async () => {
   try {
+    console.log('Looking for cache at:', CACHE_FILE);
+    console.log('Cache file exists:', fs.existsSync(CACHE_FILE));
+    
     if (fs.existsSync(CACHE_FILE)) {
       console.log('Loading consultants from cache...');
       const cacheData = fs.readFileSync(CACHE_FILE, 'utf-8');

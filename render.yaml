@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: thermomix-friends-backend
+    runtime: node
+    repo: https://github.com/joquerod/thermomix-friends
+    branch: main
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
